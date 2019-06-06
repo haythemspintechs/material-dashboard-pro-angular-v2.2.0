@@ -81,6 +81,55 @@ Quick start options:
 6. And: ```npm start```
 7. Navigate to [localhost:4200](localhost:4200)
 
+## Launch Docker Container
+   
+*Must have Docker installed (v18.09.2 recommended)
+
+*****Before you begin, you must start the docker daemon and login***
+
+### Build and Mount image
+
+  **Build:**
+
+    $ docker build -t material-dashboard-pro-angular:dev .
+
+**Run**
+
+*bash:*
+
+    $ docker run -v /app/node_modules -v ${pwd}:/app -p 4200:4200 --rm material-dashboard-pro-angular:dev
+    
+*powershell*
+
+    >> docker run -v /app/node_modules -v ${PWD}:/app -p 4200:4200 --rm material-dashboard-pro-angular:dev
+
+**application should be running at http://localhost:4200/**
+
+### Maintenance
+  
+  ***stop container:***
+
+    $ docker ps 
+    $ docker stop {CONTAINER ID}
+
+***or*** **kill all running containers**:
+
+    $ docker kill $(docker ps -q)
+    
+**remove docker image(s):**
+
+    $ docker images -a 
+    $ docker rmi -f Image {IMAGE ID}
+    
+ ***or* delete all images:**
+ 
+    $ docker rmi $(docker images -a -q)
+   
+   ***OR* just remove ALL unused or dangling images, containers, volumes, and networks AND stopped containers and all unused images *(not running containers)*:**
+   
+
+    $ docker system prune --volumes -a
+
 ## Documentation
 The documentation for the Material Dashboard Pro Angular is hosted at our [website](https://demos.creative-tim.com/material-dashboard-pro-angular2/documentation/tutorial).
 
